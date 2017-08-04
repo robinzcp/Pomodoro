@@ -3,20 +3,24 @@ import Vuex from 'vuex'
 import getters from './getters'
 import actions from './actions'
 import mutations from './mutations'
-import * as configTypes from '../config'
+import { WORKING_TIME } from '../config'
 
 Vue.use(Vuex)
 
 const state = {
-	isWorking: true,
-	isStarted: false,
-	isPaused: false,
-	isStoped: false,
-	counter: configTypes.WORKING_TIME,
-	interval: null,
-	isSoundEnabled: true
+  started: false,
+  paused: false,
+  stopped: false,
+  isWorking: true,
+  counter: WORKING_TIME,
+  interval: null,
+  timestamp: 0,
+  soundEnabled: true
 }
 
 export default new Vuex.Store({
-	state, getters, mutations, actions
+  state,
+  mutations,
+  getters,
+  actions
 })

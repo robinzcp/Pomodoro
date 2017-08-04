@@ -3,7 +3,16 @@ import _ from 'underscore'
 
 // Thanks to this great tutorial: http://noisehack.com/generate-noise-web-audio-api/
 var audioContext, bufferSize, noise
-audioContext = new (window.AudioContext || window.webkitAudioContext)()
+
+audioContext = {
+  resume: function () {},
+  suspend: function () {},
+  fake: true
+}
+
+if (window.AudioContext || window.webkitAudioContext) {
+  audioContext = new (window.AudioContext || window.webkitAudioContext)()
+}
 
 function generateWhiteNoise () {
   var noiseBuffer, output
@@ -81,6 +90,9 @@ export default {
     Vue.directive('noise', (value) => {
       var noise
 
+      if (audioContext.fake) {
+        return
+      }
       switch (value) {
         case 'white':
           noise = generateWhiteNoise()

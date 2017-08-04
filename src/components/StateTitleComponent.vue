@@ -6,11 +6,12 @@
   </div>
 </template>
 
-
 <style scoped>
 </style>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     data () {
       return {
@@ -18,7 +19,9 @@
         restingtitle: 'Rest!'
       }
     },
-    props: ['isworking']
+    computed: mapGetters({
+      isworking: 'isWorking'
+    })
   }
 </script>
 

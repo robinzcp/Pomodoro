@@ -1,16 +1,16 @@
-import * as mutationTypes from './mutation_types'
+import * as types from './mutation_types'
 
 export default {
-	start: ({ commit }) => {
-		commit(mutationTypes.START)
-	},
-	stop: ({ commit }) => {
-		commit(mutationTypes.STOP)
-	},
-	pause: ({ commit }) => {
-		commit(mutationTypes.PAUSE)
-	},
-	toggleSound: ({ commit }) => {
-		commit(mutationTypes.TOGGLE_SOUND)
-	}
+  start: ({ commit }) => {
+    commit(types.START)
+  },
+  pause: ({ commit }) => {
+    commit(types.PAUSE)
+  },
+  stop: ({ commit }) => {
+    commit(types.STOP)
+  },
+  toggleSound: ({ commit }) => {
+    commit(types.TOGGLE_SOUND)
+  }
 }
